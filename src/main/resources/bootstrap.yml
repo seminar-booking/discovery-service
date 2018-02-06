@@ -1,0 +1,23 @@
+server:
+  port: ${PORT:12000}
+spring:
+  application:
+    name: discovery-service
+  cloud:
+    config:
+      server:
+        prefix: /config-server
+        git:
+          uri: https://github.com/seminar-booking/cloud-config.git
+
+eureka:
+  instance:
+    hostname: 35.201.79.120
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      default-zone: http://35.201.79.120:12000/eureka/
+    enabled: true
+  server:
+    enable-self-preservation: true
